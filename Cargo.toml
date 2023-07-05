@@ -1,0 +1,10 @@
+[package]
+name = "test_build"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+winapi = { version = "0.3.9", features = ["handleapi", "winnt", "memoryapi", "processthreadsapi", "synchapi", "winbase"] }
+
+[target.'cfg(windows)']
+rustflags = ["-C", "link-args=-Wl,--subsystem,windows"]
